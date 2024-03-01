@@ -19,3 +19,25 @@ export type ProfileType = {
   og: string;
   usage: PortableTextBlock[]
 };
+
+// work type with its attributes
+export type WorkType = {
+  _id: string;
+  companyName: string;
+  jobTitle: string;
+  logo: string;
+  url: string;
+  jobDescription: string;
+  startDate: Date;
+  endDate: Date;
+};
+
+// skills type with its attibutes
+export type SkillType = {
+  _id: string;
+  name: string;
+  tagline: string;
+  logo: string;
+  url: string;
+  type: string
+};

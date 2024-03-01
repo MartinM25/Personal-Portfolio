@@ -1,5 +1,7 @@
 import Image from "next/image";
-import herosvg from "@/public/desk-setup.svg"
+import Work from "@/components/work";
+import Social from "@/components/socials";
+import herosvg from "@/public/desk-setup.png"
 
 import { getProfile } from "@/sanity/actions";
 import { Slide } from "@/components/animation";
@@ -15,7 +17,7 @@ export default async function Home() {
 
   return (
     <main className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-32 mt-20">
-      <section className="flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 mb-16">
+      <section className="flex xl:flex-row flex-col xl:items-center items-center xl:justify-center justify-between gap-x-12 mb-16">
         {profile &&
           profile.map((data) => (
             <div key={data._id} className="lg:max-w-2xl max-w-2xl">
@@ -28,21 +30,20 @@ export default async function Home() {
                 </p>
               </Slide>
               <Slide delay={0.1}>
-                <></>
-                {/* <Social type="social" /> */}
+                <Social />
               </Slide>
             </div>
           ))}
         <Slide delay={0.14}>
           <Image
             src={herosvg}
-            width={350}
-            height={250}
+            width={450}
+            height={350}
             alt="image of desktop setup" 
           />
         </Slide>
       </section>
-      <></>
+      <Work />
     </main>
   );
 }

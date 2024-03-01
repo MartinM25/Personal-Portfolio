@@ -77,8 +77,8 @@ const profile = {
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "skills",
-      title: "Skills",
+      name: "softSkills",
+      title: "Soft Skills",
       type: "array",
       of: [{ type: "block" }],
       validation: (rule) => rule.required(),

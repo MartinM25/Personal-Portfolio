@@ -23,3 +23,19 @@ export async function getProfile() {
     }`
   );
 }
+
+// function for fetching work experience from sanity
+export async function getWork() {
+  return client.fetch(
+    groq`*[_type == "work"] | order(_createdAt desc){
+      _id,
+      companyName,
+      jobTitle,
+      "logo": logo.asset->url,
+      url,
+      jobDescription,
+      startDate,
+      endDate,
+    }`
+  );
+}

@@ -1,8 +1,10 @@
-import { HiBeaker, HiUser } from "react-icons/hi";
 import nextjslogo from "@/public/SVG/next.svg";
 import shadcnlogo from "@/public/SVG/shadcn.svg";
 import sanitylogo from "@/public/PNG/sanity.png";
 import tailwindlogo from "@/public/SVG/tailwind.svg";
+
+import { HiBeaker, HiUser } from "react-icons/hi";
+import { BiLogoGithub, BiLogoTwitter, BiLogoInstagram, BiLogoLinkedinSquare } from "react-icons/bi";
 
 export const HEADER_LINKS = [
   {
@@ -37,5 +39,28 @@ export const FOOTER_LINKS = [
     title: "Tailwind",
     href: "https://tailwindcss.com",
     logo: tailwindlogo
+  },
+]
+
+export const SOCIALS = [
+  {
+    name: "GitHub",
+    url: "https://github.com/MartinM25",
+    icon: BiLogoGithub,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/martin-t-manjoro/",
+    icon: BiLogoLinkedinSquare,
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/martin_manjoro",
+    icon: BiLogoTwitter,
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/cozzyboimartin/",
+    icon: BiLogoInstagram,
   },
 ]

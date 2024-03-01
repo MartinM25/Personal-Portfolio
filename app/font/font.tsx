@@ -3,22 +3,22 @@ import localFont from "next/font/local";
 export const kodeMono = localFont({
   src: [
     {
-      path: "kodeMono-Bold.ttf",
+      path: "kodeMono-Bold.woff2",
       weight: "700",
       style: "normal"
     },
     {
-      path: "kodeMono-Medium.ttf",
+      path: "kodeMono-Medium.woff2",
       weight: "500",
       style: "normal"
     },
     {
-      path: "kodeMono-Regular.ttf",
+      path: "kodeMono-Regular.woff2",
       weight: "400",
       style: "normal"
     },
     {
-      path: "kodeMono-SemiBold.ttf",
+      path: "kodeMono-SemiBold.woff2",
       weight: "600",
       style: "normal"
     }
