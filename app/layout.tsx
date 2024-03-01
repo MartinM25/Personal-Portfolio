@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+
 import Navbar from "@/components/nav-bar";
 import Footer from "@/components/footer";
+
+import type { Metadata } from "next";
+import { kodeMono } from "./font/font";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body suppressHydrationWarning={true} className={`${inter.className} ${kodeMono.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
