@@ -46,10 +46,12 @@ export default async function About(){
                       priority
                     />
                     <div className="flex flex-row justify-between gap-4">
-                      <Button variant="outline" className="justify-center gap-2 basis-[90%]">
-                        View Resumé <BiLinkExternal className="text-base" />
-                      </Button>
-                      <Link  href="" className="basis-[10%]" title="Download Resume">
+                      <Link href="https://drive.google.com/file/d/1U_xcaKV2iE_x8eiKWPKCpto-2FgSs45h/view?usp=drive_link" className="">
+                        <Button variant="outline" className="justify-center gap-2 basis-[90%]">
+                          View Resumé <BiLinkExternal className="text-base" />
+                        </Button>
+                      </Link>
+                      <Link  href="https://drive.usercontent.google.com/uc?id=1U_xcaKV2iE_x8eiKWPKCpto-2FgSs45h&export=download" className="basis-[10%]" title="Download Resume">
                         <Button variant="outline" size="icon">
                           <BiSolidDownload className="text-lg" aria-label="Download Resume"/> 
                         </Button>
