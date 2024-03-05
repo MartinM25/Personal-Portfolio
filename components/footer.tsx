@@ -7,8 +7,8 @@ import { FOOTER_LINKS } from "@/constants";
 const Footer = () => {
   return (
     <UnmountStudio>
-      <footer>
-        <div className="max-w-7xl mx-auto flex lg:flex-row flex-col items-center lg:justify-between justify-center gap-y-4 md:px-16 px-6 py-16">
+      <footer className="border-t dark:border-zinc-800 border-zinc-200  mt-10">
+        <div className=" max-w-7xl mx-auto flex lg:flex-row flex-col items-center lg:justify-between justify-center gap-y-4 md:px-16 px-6 py-16">
           <div className="flex flex-col lg:items-end items-center lg:text-start text-center">
             <small className="text-zinc-500">
               Copyright &copy; Martin Manjoro {new Date().getFullYear()} All rights Reserved
