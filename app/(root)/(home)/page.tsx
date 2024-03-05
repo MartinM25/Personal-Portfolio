@@ -24,7 +24,7 @@ export default async function Home() {
           profile.map((data) => (
             <div key={data._id} className="lg:max-w-2xl max-w-2xl">
               <Slide>
-                <h1 className="font-kodeMono font-semibold tracking-tight text-4xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
+                <h1 className="font-KodeMono font-semibold tracking-tight text-4xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
                   {data.headline}
                 </h1>
                 <p className="text-base dark:text-zinc-400 text-zinc-600 leading-relaxed">
@@ -49,7 +49,7 @@ export default async function Home() {
       <section className="">
         <Slide delay={0.16}>
           <div className="mb-16">
-            <h2 className="font-kodeMono text-4xl mb-4 font-bold traking-tight">
+            <h2 className="font-KodeMono text-4xl mb-4 font-bold traking-tight">
               Skills & Tools
             </h2>
           </div>

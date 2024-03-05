@@ -23,7 +23,7 @@ export default async function About(){
             <section className="relative grid lg:grid-cols-2 grid-cols-1">
               <div className="order-2 lg:order-none">
                 <Slide>
-                  <h1 className="font-kodeMono font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight mb-8">
+                  <h1 className="font-KodeMono font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight mb-8">
                     My name is {data.fullName}. I currently reside in {data.location}.
                   </h1>
                   <div className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
@@ -70,7 +70,7 @@ export default async function About(){
             </section>
             <section className="mt-4 max-w-2xl">
               <Slide delay={0.1}>
-                <h2 className="font-kodeMono font-semibold text-4xl mb-8">Soft Skills</h2>
+                <h2 className="font-KodeMono font-semibold text-4xl mb-8">Soft Skills</h2>
                 <div className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
                   <PortableText value={data.softSkills} components={CustomPortableText} />
                 </div>
@@ -79,17 +79,17 @@ export default async function About(){
 
             <section className="mt-24 w-full">
               <Slide delay={0.14}>
-                <h2 className="font-kodeMono font-semibold text-4xl mb-4">Expertise</h2>
+                <h2 className="font-KodeMono font-semibold text-4xl mb-4">Expertise</h2>
                 <p className="dark:text-zinc-400 text-zinc-600">
                   I&apos;ve spent few years working on my skills. In no particular
                   order, here are a few of them.
                 </p>
                 <div className="pt-10">
-                  <h4 className="font-kodeMono font-semibold text-2xl">Technologies:</h4>
+                  <h4 className="font-KodeMono font-semibold text-2xl">Technologies:</h4>
                   <Skills type="Technologies" />
-                  <h4 className="font-kodeMono font-semibold text-2xl">Tools:</h4>
+                  <h4 className="font-KodeMono font-semibold text-2xl">Tools:</h4>
                   <Skills type="Tools" />
-                  <h4 className="font-kodeMono font-semibold text-2xl">Platform:</h4>
+                  <h4 className="font-KodeMono font-semibold text-2xl">Platform:</h4>
                   <Skills type="Platform" />
                 </div>
               </Slide>  

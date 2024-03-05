@@ -15,7 +15,7 @@ export default async function Projects() {
     <main className="max-w-7xl mx-auto md:px-16 px-6">
       <header className="mb-10">
         <Slide>
-          <h1 className="max-w-3xl font-kodeMono font-semibold tracking-tight sm:text-5xl text-3xl mb-6 lg:leading-[3.7rem]">
+          <h1 className="max-w-3xl font-KodeMono font-semibold tracking-tight sm:text-5xl text-3xl mb-6 lg:leading-[3.7rem]">
             Projects
           </h1>
           <p className="max-w-2xl text-base dark:text-zinc-400 text-zinc-600 leading-relaxed">

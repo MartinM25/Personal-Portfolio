@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 
-export const kodeMono = localFont({
+export const KodeMono = localFont({
   src: [
     {
       path: "KodeMono-Bold.woff2",
@@ -23,6 +23,6 @@ export const kodeMono = localFont({
       style: "normal"
     }
   ],
-  variable: "--kodeMono",
+  variable: "--KodeMono",
   display: "swap",
 })

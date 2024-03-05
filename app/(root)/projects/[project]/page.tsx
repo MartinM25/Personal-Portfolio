@@ -22,7 +22,7 @@ export default async function Project({ params }: Props) {
     <Slide>
       <div className="max-w-3xl mx-auto">
         <div className="flex items-start justify-between mb-4">
-          <h1 className="font-kodeMono tracking-tight sm:text-5xl text-3xl mb-4 max-w-sm">
+          <h1 className="font-KodeMono tracking-tight sm:text-5xl text-3xl mb-4 max-w-sm">
             {project.projectName}
           </h1>
 

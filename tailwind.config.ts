@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        kodeMono: ["var(--kodeMono)"],
+        KodeMono: ["var(--KodeMono)"],
       },
       colors: {
         border: "hsl(var(--border))",

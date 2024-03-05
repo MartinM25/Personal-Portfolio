@@ -23,7 +23,7 @@ const Navbar = () => {
                 <li key={id}>
                   <Link
                     href={link.href}
-                    className="font-kodeMono font-semibold dark:text-white text-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-300 duration-300 text-base"
+                    className="font-KodeMono font-semibold dark:text-white text-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-300 duration-300 text-base"
                   >
                     {link.title}
                   </Link>
