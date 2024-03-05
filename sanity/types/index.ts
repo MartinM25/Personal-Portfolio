@@ -10,14 +10,30 @@ export type ProfileType = {
   profileImage: {
     image: string;
     lqip: string;
-    alt: string
+    alt: string;
   };
-  shortBio: string,
-  location: string,
-  fullBio: PortableTextBlock[],
-  resumeURL: string,
+  shortBio: string;
+  location: string;
+  fullBio: PortableTextBlock[];
+  resumeURL: string;
   og: string;
-  usage: PortableTextBlock[]
+  softSkills: PortableTextBlock[];
+};
+
+// project type with its attributes
+export type ProjectsType = {
+  _id: string;
+  projectName: string;
+  slug: string;
+  tagline: string;
+  projectUrl: string;
+  logo: string;
+  coverImage: {
+    alt: string | null;
+    image: string;
+    lqip: string;
+  };
+  description: PortableTextBlock[];
 };
 
 // work type with its attributes
@@ -33,11 +49,11 @@ export type WorkType = {
 };
 
 // skills type with its attibutes
-export type SkillType = {
+export type SkillsType = {
   _id: string;
   name: string;
   tagline: string;
   logo: string;
   url: string;
-  type: string
+  type: string;
 };

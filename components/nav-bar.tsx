@@ -17,13 +17,13 @@ const Navbar = () => {
             <Image src={Logo} width={150} height={150} alt="logo" />
           </Link>
           {/* nav links */}
-          <nav className="md:block hidden">
+          <nav className="md:block hidden flex-end">
             <ul className="flex items-center gap-x-8">
               {HEADER_LINKS.map((link, id) => (
                 <li key={id}>
                   <Link
                     href={link.href}
-                    className="font-kodeMono dark:text-white text-zinc-600 dark:hover:text-primary-color hover:text-zinc-900 duration-300 text-base"
+                    className="font-kodeMono font-semibold dark:text-white text-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-300 duration-300 text-base"
                   >
                     {link.title}
                   </Link>

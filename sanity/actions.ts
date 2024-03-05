@@ -19,8 +19,36 @@ export async function getProfile() {
       location,
       fullBio,
       "resumeURL": resumeURL.asset->url,
-      skills
+      softSkills
     }`
+  );
+}
+
+// function fro fetching projects from sanity
+export async function getProjects() {
+  return client.fetch(
+    groq`*[_type == "project"]{
+      _id,
+      projectName,
+      "slug": slug.current,
+      tagline,
+      "logo": logo.asset->url,
+    }`
+  );
+}
+
+// function fro fetching a single project from sanity
+export async function getSingleProject(slug: string) {
+  return client.fetch(
+    groq`*[_type == "project" && slug.current == $slug][0]{
+      _id,
+      projectName,
+      projectUrl,
+      coverImage { alt, "image": asset->url },
+      tagline,
+      description
+    }`,
+    { slug }
   );
 }
 
@@ -36,6 +64,19 @@ export async function getWork() {
       jobDescription,
       startDate,
       endDate,
+    }`
+  );
+}
+
+export async function getSkills() {
+  return client.fetch(
+    groq`*[_type == "skills"] {
+      _id,
+      name,
+      tagline,
+      "logo": logo.asset->url,
+      url,
+      type,
     }`
   );
 }

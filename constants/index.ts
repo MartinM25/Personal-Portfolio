@@ -3,10 +3,15 @@ import shadcnlogo from "@/public/SVG/shadcn.svg";
 import sanitylogo from "@/public/PNG/sanity.png";
 import tailwindlogo from "@/public/SVG/tailwind.svg";
 
-import { HiBeaker, HiUser } from "react-icons/hi";
+import { HiBeaker, HiUser, HiHome } from "react-icons/hi";
 import { BiLogoGithub, BiLogoTwitter, BiLogoInstagram, BiLogoLinkedinSquare } from "react-icons/bi";
 
 export const HEADER_LINKS = [
+  {
+    title: "Home",
+    href: "/",
+    icon: HiHome,
+  },
   {
     title: "About",
     href: "/about",

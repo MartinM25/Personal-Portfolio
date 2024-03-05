@@ -30,7 +30,7 @@ export default function MobileMenu() {
       <button
         aria-label="Toggle Menu"
         onClick={onToggleNav}
-        className="md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-md p-2"
+        className="md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-full p-2"
       >
         <RxHamburgerMenu className="text-xl" />
       </button>
@@ -42,7 +42,7 @@ export default function MobileMenu() {
         <div className="flex items-center justify-between mt-6 px-8">
           {/* logo */}
           <Link href="/" onClick={onToggleNav}>
-            <Image src={Logo} width={35} height={35} alt="logo" />
+            <Image src={Logo} width={130} height={150} alt="logo" />
           </Link>
           {/* buuton for closing menu */}
           <button

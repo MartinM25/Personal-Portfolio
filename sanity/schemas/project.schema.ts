@@ -26,7 +26,7 @@ const project = {
       type: "slug",
       description: 
         "Provide a custom slug for the URL or generate one from the name.",
-      options: { source: "name" },  
+      options: { source: "projectName" },  
     },
     defineField({
       name: "logo",
