@@ -2,11 +2,12 @@
 
 import { groq } from "next-sanity";
 import { client } from "./lib/client";
+import { ProfileType } from "./types";
 
 // function for fetching profile from sanity
-export async function getProfile() {
+export async function getProfile(): Promise<ProfileType> {
   return client.fetch(
-    groq`*[_type == "profile"]{
+    groq`*[_type == "profile"][0]{
       _id,
       fullName,
       headline,
@@ -24,7 +25,7 @@ export async function getProfile() {
   );
 }
 
-// function fro fetching projects from sanity
+// function for fetching projects from sanity
 export async function getProjects() {
   return client.fetch(
     groq`*[_type == "project"]{
@@ -33,18 +34,27 @@ export async function getProjects() {
       "slug": slug.current,
       tagline,
       "logo": logo.asset->url,
+      toolsUsed,
+      projectUrl,
+      githubUrl,
+
     }`
   );
 }
 
-// function fro fetching a single project from sanity
+// function for fetching a single project from sanity
 export async function getSingleProject(slug: string) {
   return client.fetch(
     groq`*[_type == "project" && slug.current == $slug][0]{
       _id,
       projectName,
       projectUrl,
-      coverImage { alt, "image": asset->url },
+      githubUrl,
+      toolsUsed,
+      "images": images[]{
+        alt,
+        "image": asset->url
+      },
       tagline,
       description
     }`,
@@ -73,10 +83,7 @@ export async function getSkills() {
     groq`*[_type == "skills"] {
       _id,
       name,
-      tagline,
       "logo": logo.asset->url,
-      url,
-      type,
     }`
   );
 }

@@ -20,6 +20,12 @@ export type ProfileType = {
   softSkills: PortableTextBlock[];
 };
 
+
+export type ImageType = {
+  alt: string;
+  image: string;
+  lqip?: string;
+};
 // project type with its attributes
 export type ProjectsType = {
   _id: string;
@@ -27,13 +33,12 @@ export type ProjectsType = {
   slug: string;
   tagline: string;
   projectUrl: string;
+  githubUrl: string;
   logo: string;
-  coverImage: {
-    alt: string | null;
-    image: string;
-    lqip: string;
-  };
+  coverImage: ImageType;
+  images: ImageType[];
   description: PortableTextBlock[];
+  toolsUsed: string[];
 };
 
 // work type with its attributes
@@ -43,7 +48,7 @@ export type WorkType = {
   jobTitle: string;
   logo: string;
   url: string;
-  jobDescription: string;
+  jobDescription: PortableTextBlock[];
   startDate: Date;
   endDate: Date;
 };
@@ -52,8 +57,5 @@ export type WorkType = {
 export type SkillsType = {
   _id: string;
   name: string;
-  tagline: string;
   logo: string;
-  url: string;
-  type: string;
 };

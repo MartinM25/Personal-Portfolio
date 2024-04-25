@@ -1,51 +1,45 @@
-import Link from "next/link"
 import Image from "next/image"
 
-import { getProfile } from "@/sanity/actions"
 import { Slide } from "@/components/animation"
-import { Button } from "@/components/ui/button"
 import type { ProfileType } from "@/sanity/types"
 import { PortableText } from "@portabletext/react"
 import { CustomPortableText } from "@/components/custom-portable-text"
-import { BiEnvelope, BiLinkExternal, BiSolidDownload } from "react-icons/bi"
-import Skills from "@/components/skills"
 
-export default async function About(){
+type AboutProps = {
+  profile: ProfileType;
+};
 
-  // calling getProfile request
-  const profile: ProfileType[] = await getProfile();
-
+const About = ({ profile }: AboutProps) => {
+  const {fullBio, softSkills, profileImage} = profile
   return (
-    <main className="relative lg:max-w-7xl mx-auto max-w-3xl md:px-16 px-6">
-      {profile && 
-        profile.map((data) => (
-          <div key={data._id}>
+    <>
+          <div>
             <section className="relative grid lg:grid-cols-2 grid-cols-1">
               <div className="order-2 lg:order-none">
                 <Slide>
-                  <h1 className="font-KodeMono font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight mb-8">
-                    My name is {data.fullName}. I currently reside in {data.location}.
-                  </h1>
-                  <div className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
-                    <PortableText value={data.fullBio} components={CustomPortableText} />
+                  <div className="text-zinc-400 leading-relaxed">
+                    <PortableText value={fullBio} components={CustomPortableText} />
+                  </div>
+                  <div className="text-zinc-400 leading-relaxed">
+                    <PortableText value={softSkills} components={CustomPortableText} />
                   </div>
                 </Slide>
               </div>
 
               <aside className="mx-auto flex flex-col lg:justify-self-end gap-y-8 lg:order-1 order-none mb-12 ">
                 <Slide delay={0.15}>
-                  <div className="">
+                  <div className=" hover:scale-110 hover:cursor-pointer p-2 rounded">
                     <Image
-                      className="rounded-2xl mb-4 object-cover max-h-96 min-h-96 bg-top align-middle"
-                      src={data.profileImage.image}
-                      width={400}
-                      height={400}
+                      className="object-contain rounded transition duration-300 ease-in-out hover:scale-105"
+                      src={profileImage.image}
+                      width={300}
+                      height={200}
                       quality={100} 
-                      alt={data.profileImage.alt}
-                      blurDataURL={data.profileImage.lqip}
+                      alt={profileImage.alt}
+                      blurDataURL={profileImage.lqip}
                       priority
                     />
-                    <div className="flex flex-row justify-between gap-4">
+                    {/* <div className="flex flex-row justify-between gap-4">
                       <Link href="https://drive.google.com/file/d/195E10JOwYAuHdq785eW-8aXT82ZPEanC/view" className="">
                         <Button variant="outline" className="justify-center gap-2 basis-[90%]">
                           View Resumé <BiLinkExternal className="text-base" />
@@ -56,9 +50,9 @@ export default async function About(){
                           <BiSolidDownload className="text-lg" aria-label="Download Resume"/> 
                         </Button>
                       </Link>
-                    </div>
+                    </div> */}
                   </div>  
-                  <div className="py-4 text-center align-middle justify-center">
+                  {/* <div className="py-4 text-center align-middle justify-center">
                     <Link
                       href={`mailto:${data.email}`}
                       className="flex items-center gap-x-2 duration-300 hover:underline"
@@ -66,20 +60,20 @@ export default async function About(){
                       <BiEnvelope className="text-medium" />
                       {data.email}
                     </Link>
-                  </div>
+                  </div> */}
                 </Slide>
               </aside>
             </section>
-            <section className="mt-4 max-w-2xl">
+            {/* <section className="mt-4 max-w-2xl">
               <Slide delay={0.1}>
                 <h2 className="font-KodeMono font-semibold text-4xl mb-8">Soft Skills</h2>
                 <div className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
                   <PortableText value={data.softSkills} components={CustomPortableText} />
                 </div>
               </Slide>
-            </section>
+            </section> */}
 
-            <section className="mt-24 w-full">
+            {/* <section className="mt-24 w-full">
               <Slide delay={0.14}>
                 <h2 className="font-KodeMono font-semibold text-4xl mb-4">Expertise</h2>
                 <p className="dark:text-zinc-400 text-zinc-600">
@@ -95,10 +89,12 @@ export default async function About(){
                   <Skills type="Platform" />
                 </div>
               </Slide>  
-            </section>
+            </section> */}
           </div>
-        ))  
-      }
-    </main>
+         
+      
+    </>
   )
 }
+
+export default About

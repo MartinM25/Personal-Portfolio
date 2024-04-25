@@ -18,7 +18,7 @@ const project = {
       name: "tagline",
       title: "Tagline",
       type: "string",
-      validation: (rule) => rule.max(60).required(),
+      validation: (rule) => rule.required(),
     }),
     {
       name: "slug",
@@ -39,27 +39,46 @@ const project = {
       name: "projectUrl",
       title: "Project URL",
       type: "url",
-      description: "Provide a link to the project. Leaving this blank will add a cuming soon button.",
-      validation: (rule) => rule.required(),
+      description: "Provide a link to the project. Leaving this blank will add a coming soon button.",
     }),
     defineField({
-      name: "coverImage",
-      title: "Cover Image",
-      type: "image",
+      name: "githubUrl",
+      title: "GitHub URL",
+      type: "url",
+      description: "Provide a link to the gitHub repo of the project. Leaving it blank will add a confidential button.",
+    }),
+    defineField({
+      name: "toolsUsed",
+      title: "Tools Used",
+      type: "array",
       validation: (rule) => rule.required(),
-      description: "Provide a cover image for this project.",
-      options: {
-        hotspot: true,
-        metadata: ["lqip"],
-      },
-      fields: [
+      description: "List the tools used for this project.",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "images",
+      title: "Images",
+      type: "array",
+      validation: (rule) => rule.required(),
+      description: "Provide cover images for this project.",
+      of: [
         {
-          name: "alt",
-          title: "Alt",
-          type: "string",
+          type: "image",
+          options: {
+            hotspot: true,
+            metadata: ["lqip"],
+          },
+          fields: [
+            {
+              name: "alt",
+              title: "Alt",
+              type: "string",
+            },
+          ],
         },
       ],
     }),
+
     defineField({
       name: "description",
       title: "Description",
@@ -67,7 +86,7 @@ const project = {
       of: [{ type: "block" }],
       description: "Write a full description about this project",
       validation: (rule) => rule.required(),
-    }),
+    }),    
   ],
 };
 

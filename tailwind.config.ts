@@ -55,6 +55,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        red: "#3B82F6",
+        blue: "#3B82F6",
+        gray: "#CCD6F6",
+        dark_gray: "#8892B0",
       },
       backgroundImage: {
         noise: 

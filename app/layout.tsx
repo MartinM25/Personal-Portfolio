@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 import type { Metadata } from "next";
 import { KodeMono } from "./font/font";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,17 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={`${inter.className} ${KodeMono.variable}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+      <body suppressHydrationWarning={true} className={`${inter.className} ${KodeMono.variable} bg-primary text-white`}>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );

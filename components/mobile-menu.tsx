@@ -6,8 +6,8 @@ import Logo from "../public/PNG/logo.png";
 
 import { useState } from "react";
 import { HEADER_LINKS } from "@/constants";
-import { HiOutlineX } from "react-icons/hi";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { HiOutlineX, HiMenuAlt3  } from "react-icons/hi";
+
 
 export default function MobileMenu() {
   const [navShow, setNavShow] = useState(false);
@@ -30,29 +30,29 @@ export default function MobileMenu() {
       <button
         aria-label="Toggle Menu"
         onClick={onToggleNav}
-        className="md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-full p-2"
+        className="md:hidden"
       >
-        <RxHamburgerMenu className="text-xl" />
+        <HiMenuAlt3 className="text-xl w-8 h-8" />
       </button>
       <div
-        className={`md:hidden fixed left-0 top-0 z-10 h-full w-full transform duration-[600ms] ease-[cubic-bezier(0.7,0,0,1)] dark:bg-zinc-900 bg-white ${
+        className={`md:hidden fixed left-0 top-0 z-10 h-full w-full transform duration-[600ms] ease-[cubic-bezier(0.7,0,0,1)] dark:bg-zinc-900 bg-primary ${
           navShow ? "translate-x-0 rounded-none" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between mt-6 px-8">
+        <div className="flex items-center justify-between pt-4 mx-5">
           {/* logo */}
           <Link href="/" onClick={onToggleNav}>
-            <Image src={Logo} width={130} height={150} alt="logo" />
+            <Image src={Logo} width={50} height={45} alt="logo" />
           </Link>
-          {/* buuton for closing menu */}
+          {/* button for closing menu */}
           <button
             aria-label="Toggle Menu"
             onClick={onToggleNav}
-            className={`md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-full p-2 duration-500 ${
+            className={`md:hidden duration-500 ${
               !navShow ? "-rotate-[360deg]" : null
             }`}
           >
-            <HiOutlineX className="text-xl" />
+            <HiOutlineX className="text-xl w-8 h-8" />
           </button>
         </div>
         {/* nav links */}
@@ -65,7 +65,7 @@ export default function MobileMenu() {
               onClick={onToggleNav}
             >
               <link.icon
-                className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"
+                className="text-zinc-500 group-hover:dark:text-white group-hover:text-white duration-300"
                 aria-hidden="true"
               />
               {link.title}

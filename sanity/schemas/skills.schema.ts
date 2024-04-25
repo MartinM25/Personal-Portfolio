@@ -17,7 +17,6 @@ const skills = {
       name: "tagline",
       title: "Tagline",
       type: "string",
-      validation: (Rule: any) => Rule.max(60).required(),
     },
     {
       name: "url",
@@ -37,7 +36,7 @@ const skills = {
       type: "string",
       description: "Select the type of skill this is.",
       options: {
-        list: [ 'Technologies','Tools','Platform' ]
+        list: [ 'Technologies','Tools','Platform', 'Programming Language' ]
       }
   },
   ],

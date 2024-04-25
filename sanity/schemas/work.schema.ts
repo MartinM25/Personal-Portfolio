@@ -33,8 +33,8 @@ const work = {
     {
       name: "jobDescription",
       title: "Job Description",
-      type: "text",
-      rows: 5,
+      type: "array",
+      of: [{ type: "block" }],
       description: "Write a brief description about this role.",
     },
     {

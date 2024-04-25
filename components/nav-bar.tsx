@@ -1,40 +1,50 @@
+"use client"
+
 import Link from "next/link";
 import Image from "next/image";
 import UnmountStudio from "./unmount";
 import MobileMenu from "./mobile-menu";
-import ThemeToggle  from "./theme-toggle";
 import Logo from "../public/PNG/logo.png";
 
 import { HEADER_LINKS } from "@/constants";
+import { useEffect, useState } from 'react';
+import { ResumeButton } from "../components/button";
 
 const Navbar = () => {
+ 
   return (
     <UnmountStudio>
-      <header className="text-sm py-6 md:px-16 px-6 border-b dark:border-zinc-800 border-zinc-200 z-30 md:mb-28 mb-10">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <header className="py-4 w-full bg-primary shadow-md fixed top-0 z-10" style={{transition: "transform 0.3s ease-in-out"}}>
+        <div className="flex max-w-7xl mx-5 md:mx-20 justify-between items-center">
           {/* logo */}
           <Link href="/">
-            <Image src={Logo} width={150} height={150} alt="logo" />
+            <Image src={Logo} width={50} height={45} alt="logo" />
           </Link>
-          {/* nav links */}
-          <nav className="md:block hidden flex-end">
-            <ul className="flex items-center gap-x-8">
-              {HEADER_LINKS.map((link, id) => (
-                <li key={id}>
-                  <Link
-                    href={link.href}
-                    className="font-KodeMono font-semibold dark:text-white text-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-300 duration-300 text-base"
+
+          <div className="flex items-center ">
+            {/* nav links */}
+            <nav className="md:block hidden flex-end">
+              <ul className="flex items-center gap-x-8">
+                {HEADER_LINKS.map((link, id) => (
+                  <li 
+                    key={id}
+                    className="text-sm text-white hover:text-blue duration-300" 
                   >
-                    {link.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          {/* mobile menu and theme toggle */}
-          <div className="flex items-center gap-x-4">
-            <ThemeToggle />
-            <MobileMenu />
+                    <Link href={link.href}>
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>  
+            </nav>
+            
+            <div className="pl-10 md:block hidden">
+              <ResumeButton />
+            </div>
+            {/* mobile menu and theme toggle */}
+            <div className="flex justify-center items-center">
+              <MobileMenu />
+            </div>
           </div>
         </div>  
       </header>
