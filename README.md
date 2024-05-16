@@ -1,4 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Portfolio Website
+
+Welcome to my personal portfolio website! This site is built using Next.js, Tailwind CSS, Shadcn, and Sanity. It serves as a showcase of my projects and experiences.
+
+## Features
+
+- **Performant Website:** A static, performant personal website designed to highlight my projects and skills.
+- **Editable Projects:** Easily manage portfolio content through the Sanity content lake by visiting `yourwebsite.com/studio`.
+- **Continuous Deployment:** Webhook-triggered continuous deployment ensures that content updates automatically trigger a build command.
+
+## Technologies Used
+
+- **Frontend:**
+  - Next.js
+  - Tailwind CSS
+  - Shadcn
+
+- **Backend:**
+  - Sanity
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps:
+
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+
 
 ## Getting Started
 
