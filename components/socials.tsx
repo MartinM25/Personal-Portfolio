@@ -12,7 +12,7 @@ const Social = () => {
               aria-hidden="true"
             />{" "}
             &nbsp;
-            <span className="">{social.name}</span>
+            <span className="group-hover:text-blue">{social.name}</span>
           </Link>
         </li>
       ))}

@@ -61,8 +61,7 @@ const config = {
         dark_gray: "#8892B0",
       },
       backgroundImage: {
-        noise: 
-          "url('/PNG/noise.png')",
+        noise: "url('/PNG/hero.jpg')",
       },
       backgroundPosition: { 
         zero: "0 0",
