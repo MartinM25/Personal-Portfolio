@@ -28,7 +28,7 @@ const Navbar = () => {
                 {HEADER_LINKS.map((link, id) => (
                   <li 
                     key={id}
-                    className="text-sm text-white hover:text-blue duration-300" 
+                    className="text-sm text-gray hover:text-white duration-300" 
                   >
                     <Link href={link.href}>
                       {link.title}
