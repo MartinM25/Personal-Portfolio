@@ -8,7 +8,12 @@ import { HiArrowRight } from "react-icons/hi";
 import type { ProjectsType } from "@/sanity/types";
 import { BiLogoGithub, BiLinkExternal } from "react-icons/bi";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import {
   Card,
   CardContent,
@@ -39,15 +44,33 @@ const Projects = async () => {
 
                   <div className="flex gap-x-2 text-zinc-500 ">
                     {project.githubUrl && (
-                      <Link href={project.githubUrl}>
-                        <BiLogoGithub className="w-6 h-6 hover:text-blue cursor-pointer" />
-                      </Link>
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <Link href={project.githubUrl}>
+                              <BiLogoGithub className="w-6 h-6 hover:text-blue cursor-pointer" />
+                            </Link>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Github</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                     )}
-                    
+
                     {project.projectUrl && (
-                      <Link href={project.projectUrl}>
-                        <BiLinkExternal className="w-6 h-6 hover:text-blue cursor-pointer" />
-                      </Link>
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <Link href={project.projectUrl}>
+                              <BiLinkExternal className="w-6 h-6 hover:text-blue cursor-pointer" />
+                            </Link>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>External Link</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                     )}
                   </div>
                 </div>
@@ -68,7 +91,7 @@ const Projects = async () => {
                 </p>
                 <ul className="flex text-xs text-zinc-500 gap-x-3 mt-4">
                   {project.toolsUsed.map((tool, index) => (
-                    <li 
+                    <li
                       key={index}
                       className="p-1 rounded-lg bg-[#1e293b]"
                     >
@@ -84,7 +107,7 @@ const Projects = async () => {
                 >
                   <Link href={`/${project.slug}`} className="flex flex-row gap-x-3 items-center">
                     Read More
-                    <HiArrowRight className="w-4 h-4"/>  
+                    <HiArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>
               </CardFooter>
