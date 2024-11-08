@@ -32,7 +32,7 @@ const Projects = async () => {
       {projects.length > 0 ? (
         <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mb-12">
           {projects.map((project) => (
-            <Card className="bg-primary border-[#233554] shadow-lg">
+            <Card className="bg-primary border-[#233554] shadow-lg cursor-pointer hover:-translate-y-2 transition ease-in-out delay-150 duration-300">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CiFolderOn className="w-12 h-12 text-blue" />
