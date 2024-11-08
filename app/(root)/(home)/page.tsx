@@ -1,27 +1,22 @@
-import Image from "next/image";
 import Work from "@/components/work";
 import Social from "@/components/socials";
 
-import { getSkills } from "@/sanity/actions";
 import { getProfile } from "@/sanity/actions";
 import { Slide } from "@/components/animation";
-import HeroAnimation from "@/components/hero-animation";
-import type { ProfileType, SkillsType } from "@/sanity/types";
+import type { ProfileType } from "@/sanity/types";
 
 import Heading from "@/components/heading";
 import About from "@/components/about";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Skills from "@/components/skills";
+import HeroAnimation from "@/components/hero-animation";
 
 export const revalidate = 10;
 
 export default async function Home() {
   // calling getProfile request
   const profile: ProfileType = await getProfile();
-
-  // calling getSkills request
-  // const skills: SkillsType[] = await getSkills();
 
   return (
     <main className="max-w-7xl mt-[130px] mx-5 md:mx-20">

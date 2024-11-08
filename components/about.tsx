@@ -28,9 +28,9 @@ const About = ({ profile }: AboutProps) => {
 
           <aside className="mx-auto flex flex-col lg:justify-self-end gap-y-8 lg:order-1 order-none mb-12 ">
             <Slide delay={0.15}>
-              <div className=" hover:scale-110 hover:cursor-pointer p-2 rounded">
+              <div className="hover:cursor-pointer p-2 rounded transition ease-in-out delay-150 hover:scale-100 duration-300 ">
                 <Image
-                  className="object-contain rounded transition duration-300 ease-in-out hover:scale-105"
+                  className="object-contain rounded transition ease-in-out delay-150 scale-90 hover:scale-100 duration-300"
                   src={profileImage.image}
                   width={300}
                   height={200}
