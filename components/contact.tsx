@@ -9,7 +9,7 @@ const Contact = ({email}: {email: string}) => {
       <p>
         Feel free to reach out anytime! Whether you have a question or simply want to chat, I'm here to respond and connect with you.
       </p>
-      <Button asChild className="bg-blue w-[100px] text-foreground my-6 hover:bg-blue/90">
+      <Button asChild className="bg-blue w-[100px] text-foreground my-6 hover:bg-blue/90 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-white">
         <Link href={`mailto:${email}`}>
           Say Hi
         </Link>
