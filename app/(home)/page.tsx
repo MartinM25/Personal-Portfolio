@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import Work from "@/components/work";
 import Social from "@/components/socials";
@@ -14,6 +12,7 @@ import Heading from "@/components/heading";
 import About from "@/components/about";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
+import Skills from "@/components/skills";
 
 export const revalidate = 10;
 
@@ -22,7 +21,7 @@ export default async function Home() {
   const profile: ProfileType = await getProfile();
 
   // calling getSkills request
-  const skills: SkillsType[] = await getSkills();
+  // const skills: SkillsType[] = await getSkills();
 
   return (
     <main className="max-w-7xl mt-[130px] mx-5 md:mx-20">
@@ -94,26 +93,7 @@ export default async function Home() {
           <Heading title="Skills & Tools" centerHorizontally={true} />
         </Slide>
         <Slide delay={0.18}>
-          <div className="grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 items-center gap-3">
-            {skills.map((skill) => (
-              <div
-
-                key={skill._id}
-                className="flex items-center border border-transparent gap-x-4 hover:border-zinc-400 p-2 rounded-lg"
-              >
-                <Image
-                  src={skill.logo}
-                  width={40}
-                  height={40}
-                  alt={skill.name}
-                  className="bg-[#1e293b] rounded-md p-2"
-                />
-                <div>
-                  <h2 className="text-sm tracking-wide mb-1">{skill.name}</h2>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Skills />
         </Slide>
       </section>
 
