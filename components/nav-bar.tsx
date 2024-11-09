@@ -7,7 +7,6 @@ import MobileMenu from "./mobile-menu";
 import Logo from "../public/PNG/logo.png";
 
 import { HEADER_LINKS } from "@/constants";
-import { useEffect, useState } from 'react';
 import { ResumeButton } from "../components/button";
 
 const Navbar = () => {
@@ -15,7 +14,7 @@ const Navbar = () => {
   return (
     <UnmountStudio>
       <header className="py-4 w-full bg-primary shadow-md fixed top-0 z-10" style={{transition: "transform 0.3s ease-in-out"}}>
-        <div className="flex max-w-7xl mx-5 md:mx-20 justify-between items-center">
+        <div className="flex max-w-7xl mx-4 md:mx-10 lg:mx-20 justify-between items-center">
           {/* logo */}
           <Link href="/">
             <Image src={Logo} width={50} height={45} alt="logo" />
@@ -28,7 +27,7 @@ const Navbar = () => {
                 {HEADER_LINKS.map((link, id) => (
                   <li 
                     key={id}
-                    className="text-sm text-white hover:text-blue duration-300" 
+                    className="text-sm text-gray hover:text-white duration-300" 
                   >
                     <Link href={link.href}>
                       {link.title}

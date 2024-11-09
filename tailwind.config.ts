@@ -56,13 +56,12 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         red: "#3B82F6",
-        blue: "#3B82F6",
+        blue: "#c55545",
         gray: "#CCD6F6",
         dark_gray: "#8892B0",
       },
       backgroundImage: {
-        noise: 
-          "url('/PNG/noise.png')",
+        noise: "url('/PNG/hero.jpg')",
       },
       backgroundPosition: { 
         zero: "0 0",
@@ -85,6 +84,12 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      transitionDuration: {
+        600: '600ms',
+      },
+      transitionTimingFunction: {
+        customEase: 'cubic-bezier(0.7,0,0,1)',
       },
     },
   },

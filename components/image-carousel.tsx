@@ -38,9 +38,9 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
         <CarouselContent>
           {images.map((image, index) => (
             <CarouselItem key={index}>
-              <div className="relative w-full h-[350px] overflow-hidden">
+              <div className="relative w-full h-[350px] overflow-hidden bg-[#1e293b] rounded">
                 <Image
-                  className="rounded-xl dark:border-zinc-800 border-zinc-100 object-contain"
+                  className="rounded-xl object-contain"
                   layout="fill"
                   src={image.image}
                   alt={image.alt}
