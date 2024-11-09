@@ -35,7 +35,7 @@ export default function MobileMenu() {
         <HiMenuAlt3 className="text-xl w-8 h-8" />
       </button>
       <div
-        className={`md:hidden fixed left-0 top-0 z-10 h-full w-full transform duration-[600ms] ease-[cubic-bezier(0.7,0,0,1)] dark:bg-zinc-900 bg-primary ${
+        className={`md:hidden fixed left-0 top-0 z-10 h-full w-full duration-&lsqb;600ms&rsqb; ease-&lsqb;cubic-bezier(0.7,0,0,1)&rsqb; dark:bg-zinc-900 bg-primary ${
           navShow ? "translate-x-0 rounded-none" : "translate-x-full"
         }`}
       >

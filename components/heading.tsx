@@ -17,7 +17,6 @@ const Heading = ({ title, centerHorizontally }: HeadingProps) => {
           {title}
         </h2>
       </div>
-      <Separator className='mb-6 w-[40%] text-[#233554]' />
     </div>
   )
 }

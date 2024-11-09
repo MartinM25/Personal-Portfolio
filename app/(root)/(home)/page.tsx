@@ -19,12 +19,12 @@ export default async function Home() {
   const profile: ProfileType = await getProfile();
 
   return (
-    <main className="max-w-7xl mt-[130px] mx-5 md:mx-20">
+    <main className="max-w-7xl mt-[130px] mx-4 md:mx-10 lg:mx-20">
 
       {/* 1st section which contains hero element */}
       <section className="flex flex-col lg:flex-row items-center justify-between space-x-6">
         {profile && (
-          <div className="lg:max-w-2xl max-w-2xl">
+          <div className="">
             <Slide>
               <p className="text-base font-bold pb-3 text-dark_gray leading-relaxed">
                 Hey there, my name is
@@ -55,7 +55,7 @@ export default async function Home() {
       {/* 2nd section with the about element */}
       <section id="about" className="pt-[130px]">
         <Slide delay={0.16}>
-          <Heading title="About Me" centerHorizontally={false} />
+          <Heading title="About Me" centerHorizontally={true} />
         </Slide>
         <Slide delay={0.18}>
           <About profile={profile} />

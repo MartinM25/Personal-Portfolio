@@ -1,20 +1,19 @@
 "use client"
 
-import Link from "next/link";
-import Image from "next/image";
-import { Separator } from "@/components/ui/separator"
-import { Slide } from "./animation";
+import { formatDate } from "@/utils/date";
 import { getWork } from "@/sanity/actions";
 import type { WorkType } from "@/sanity/types";
-import { formatDate } from "@/utils/date";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useEffect, useState } from "react";
+import { PortableText } from "@portabletext/react";
+import { useEffect, useState, useRef } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 import { CustomPortableText } from "./custom-portable-text";
-import { PortableText } from "@portabletext/react"
 
 export default function Work() {
   const [work, setWork] = useState<WorkType[]>([]);
-  const [defaultTabValue, setDefaultTabValue] = useState<string>("");
+  const [activeTab, setActiveTab] = useState<string>("");
+  const [indicatorStyle, setIndicatorStyle] = useState({});
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchWork() {
@@ -22,53 +21,92 @@ export default function Work() {
       setWork(workData);
 
       if (workData.length > 0) {
-        console.log("Setting default tab value:", workData[0].companyName);
-        setDefaultTabValue(workData[0].companyName);
+        setActiveTab(workData[0].companyName);
       }
+      setLoading(false);
     }
-    console.log("Default tab value:", defaultTabValue);
 
     fetchWork();
   }, []);
 
+  useEffect(() => {
+    const updateIndicator = () => {
+      const activeTabElement = document.querySelector(`.tab.active`);
+      if (activeTabElement && tabsRef.current) {
+        const { offsetLeft, offsetWidth } = activeTabElement as HTMLButtonElement;
+        setIndicatorStyle({
+          left: `${offsetLeft}px`,
+          width: `${offsetWidth}px`,
+        });
+      }
+    };
+
+    updateIndicator();
+    window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, [activeTab, work]);
+
   return (
-    <section className="">
-      <Slide delay={0.18}>
-        {work.length > 0 && (
-         <Tabs orientation="horizontal" defaultValue={work[0].companyName}>
-          <TabsList className="bg-[#1e293b] border border-[#1e293b]">
+    <section className="mx-auto w-full">
+      {loading ? (
+        <div className="space-y-3">
+          <Skeleton className="h-8 bg-slate-800 w-[75%]" />
+
+          <div className="flex lg:flex-row space-x-4">
+            <div className="md:w-[30%] space-y-4">
+              <Skeleton className="h-5 bg-slate-800" />
+              <Skeleton className="h-5 bg-slate-800" />
+              <Skeleton className="h-5 bg-slate-800" />
+            </div>
+            <div className="md:w-[70%]">
+              <Skeleton className="h-24 bg-slate-800" />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div ref={tabsRef} className="relative overflow-x-auto">
+            <div className="flex border-b-2 border-[#1e293b] ">
+              {work.map((data) => (
+                <button
+                  key={data._id}
+                  className={`tab px-4 py-2 cursor-pointer text-zinc-500 transition-colors duration-300 ease-in-out hover:bg-[#1e293b] ${activeTab === data.companyName ? "bg-[#1e293b] text-white active" : ""
+                    }`}
+                  onClick={() => setActiveTab(data.companyName)}
+                >
+                  {data.companyName}
+                </button>
+              ))}
+              {/* Sliding Indicator */}
+              <div
+                className="absolute bottom-0 h-[2px]  bg-[#c55545] transition-all duration-300 ease"
+                style={indicatorStyle}
+              />
+            </div>
+          </div>
+
+          <div className="pt-6">
             {work.map((data) => (
-              <TabsTrigger  
-                key={data._id} 
-                value={data.companyName}
-                
-              >
-                {data.companyName}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          
-         <div className="pt-6">
-           {work.map((data) => (
-              <TabsContent key={data._id} value={data.companyName}>
-                <div className="flex flex-col md:flex-row gap-y-6 w-full">
-                  <div className="flex flex-col gap-y-1 items-start md:w-[30%]">
+              activeTab === data.companyName && (
+                <div key={data._id} className="flex flex-col gap-6 md:flex-row">
+                  <div className="flex flex-col gap-1 items-start md:w-[30%]">
                     <h3 className="text-xl font-semibold">{data.companyName}</h3>
                     <p>{data.jobTitle}</p>
-                    <time className="text-sm text-zinc-500 mt-2 tracking-widest uppercase">{formatDate(data.startDate.toString())} - {data.endDate ? formatDate(data.endDate.toString()) : <span className="dark:text-primary-color text-[green]">Present</span>}</time>  
+                    <time className="mt-2 text-sm tracking-widest uppercase text-zinc-500">
+                      {formatDate(data.startDate.toString())} - {data.endDate ? formatDate(data.endDate.toString()) : <span className="text-[green] dark:text-primary-color">Present</span>}
+                    </time>
                   </div>
 
                   <div className="md:w-[70%] text-zinc-400">
                     <PortableText value={data.jobDescription} components={CustomPortableText} />
                   </div>
                 </div>
-              </TabsContent>
+              )
             ))}
           </div>
-       </Tabs> 
-        )}
-        
-      </Slide>
-    </section>
+        </>
+      )
+      }
+    </section >
   );
 }
